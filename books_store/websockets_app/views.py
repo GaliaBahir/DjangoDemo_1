@@ -4,4 +4,4 @@ from django.shortcuts import render
 
 def counter(request):
     #return(Http.HttpResponse(200))
-    return render(request, 'counter.html')
+    return render(request, 'counter.html', context={'text':"hello world"})

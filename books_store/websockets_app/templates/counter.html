@@ -20,6 +20,8 @@
     }
   </style>
   <body>
+    <h1 id="main">hey bro</h1>
+    </br> </br>
     <p id="counter"></p>
     <script>
       // number_one=document.getElementById('main')
@@ -27,14 +29,32 @@
       // var endpoint=wsStart + window.location.host + window.location.pathname
       // var socket = new WebSocket(endpoint)
       // console.log(endpoint)
-      document.querySelector("#counter").innerHTML = 22;
-      const socket = new WebSocket("ws://localhost:8000/ws/");
+      document.querySelector("#counter").innerHTML = 252;
+      {% comment %} const socket = new WebSocket("ws://localhost:8000/ws/");
 
       socket.onmessage = function (event) {
         const data = JSON.parse(event.data);
         console.log(data);
         document.querySelector("#counter").innerHTML = data.counter;
-      };
+      }; {% endcomment %}
+
+      number_one=document.getElementById('main')
+      var wsStart='ws://'
+      var endpoint=wsStart + window.location.host + window.location.pathname
+      var socket = new WebSocket(endpoint)
+      console.log(endpoint)
+
+      socket.onopen =function(e){
+      console.log('open',e)
+      socket.send(1)
+      }
+
+      socket.onmessage=function(e){
+      console.log('message',e)
+      number_one.innerHTML=e.data
+      socket.send(1)
+
+      }
     </script>
   </body>
 </html>

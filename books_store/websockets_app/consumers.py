@@ -1,10 +1,10 @@
 from time import sleep
 import json
 import random
-from channels.generic.websocket import WebsocketConsumer
+from channels.generic.websocket import AsyncWebsocketConsumer
 
 
-class CounterConsumer(WebsocketConsumer):
+class CounterConsumer(AsyncWebsocketConsumer):
 
     # def connect(self):
     #     print("Trying to connect")
@@ -22,22 +22,28 @@ class CounterConsumer(WebsocketConsumer):
     #         sleep(1)
 
 
-    def connect(self):
+    async def connect(self):
         # accept the connection
-        self.accept()
+        await self.accept()
         print("Socket is connected")
+        await self.send({'text':"hi there"})
 
-    def disconnect(self, code):
+    async def disconnect(self, code):
         # close the connection
-        self.close()
         print("Socket disconnected with code", code)
+        await self.close()
+       
    
 
-    def receive(self, data):
+    async def receive(self, data):
+        print("receive")
+        sleep(1)
+
+        await self.send({"text":str(random.randint(0,100))})
         # the websocket doesn't recieve anything currently from the client
-        pass
+        #pass
     
-    def send_user(self, event):
+    async def send_user(self, event):
         self.send(json.dumps({"ping": "pong"}))
 
 
