@@ -25,6 +25,7 @@ class CounterConsumer(WebsocketConsumer):
     def connect(self):
         # accept the connection
         self.accept()
+        print("Socket is connected")
 
     def disconnect(self, code):
         # close the connection
