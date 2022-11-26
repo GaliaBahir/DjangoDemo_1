@@ -9,3 +9,5 @@ __pycache__/
 *.pyc
 __pycache__/
 local_settings.py
+books_store/books_store/__pycache__/settings.cpython-311.pyc
+books_store/books_store/__pycache__/urls.cpython-311.pyc
