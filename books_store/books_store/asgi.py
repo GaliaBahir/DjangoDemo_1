@@ -24,6 +24,6 @@ application = ProtocolTypeRouter(
         # handle http/https requests
         "http": get_asgi_application(),
         # handle ws/wss requests
-        "websocket": AuthMiddlewareStack(URLRouter(books_store.urls))
+        "websocket": URLRouter(books_store.urls.uwebsocket_urlpatterns)
     }
 )

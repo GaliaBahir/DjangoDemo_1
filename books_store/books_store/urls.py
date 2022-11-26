@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
 from websockets_app.consumers import CounterConsumer
 
 urlpatterns = [
@@ -22,6 +22,6 @@ urlpatterns = [
     path('counter/', include('websockets_app.urls'))
 ]
 
-uwebsocket_rlpatterns = [
-    path('ws/', CounterConsumer.as_asgi()),
+uwebsocket_urlpatterns = [
+    re_path('ws/', CounterConsumer.as_asgi()),
 ]
