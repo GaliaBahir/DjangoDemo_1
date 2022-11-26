@@ -1,6 +1,8 @@
 import json
 import django.http as Http
+from django.views.decorators.csrf import csrf_exempt
 
+@csrf_exempt
 def CalculateDiscount(request: Http.HttpRequest):
     try:
         if request.method == "PATCH":
