@@ -41,7 +41,7 @@
 
       number_one=document.getElementById('main')
       var wsStart='ws://'
-      var endpoint=wsStart + '127.0.0.1:8000/ws/counter/' ///127.0.0.1/window.location.host // + window.location.pathname
+      var endpoint='ws://localhost:8000/ws/' ///127.0.0.1/window.location.host // + window.location.pathname
       var socket = new WebSocket(endpoint)
       console.log(endpoint)
 
