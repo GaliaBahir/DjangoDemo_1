@@ -1,0 +1,6 @@
+### Python ###
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+books_store/books_store/__pycache__/settings.cpython-311.pyc
+books_store/books_store/__pycache__/urls.cpython-311.pyc
